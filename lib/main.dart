@@ -5,7 +5,7 @@ void main() {
   runApp(
     MaterialApp(
       routes: {
-        XOGame.routeName:(_)=>XOGame(),
+        XOGame.routeName:(_)=>XOGame()
       },
       initialRoute: XOGame.routeName,
     )
