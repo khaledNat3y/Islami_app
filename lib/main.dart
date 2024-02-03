@@ -9,7 +9,7 @@ void main() {
         XOGame.routeName:(_)=>XOGame(),
         Splash.routeName:(_)=>Splash(),
       },
-      initialRoute: XOGame.routeName,
+      initialRoute: Splash.routeName,
     )
   );
   ///Made with ♥ by Khaled Nat3y.

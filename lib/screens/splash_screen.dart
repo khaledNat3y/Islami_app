@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
 class Splash extends StatefulWidget {
   static const routeName="splash";
   @override
@@ -11,9 +11,8 @@ class SplashState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Image.asset("assets/images/Group 8.png "),
-      ),
+
+
     );
   }
 }
