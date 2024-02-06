@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_app/xoGame/game_x_o.dart';
+import '../utils/app_assets.dart';
+import 'home_screen.dart';
 
 class Splash extends StatefulWidget {
   static const routeName="splash";
@@ -13,15 +14,15 @@ class SplashState extends State {
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    Future.delayed(Duration(seconds: 3,),(){
-     Navigator.of(context).pushReplacementNamed(XOGame.routeName);
+    Future.delayed(Duration(seconds: 2,),(){
+     Navigator.of(context).pushReplacementNamed(Home.routeName);
     });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Image.asset("assets/images/Group 8.png"),
+        child: Image.asset(AppAssets.splash)
       ),
     );
   }
