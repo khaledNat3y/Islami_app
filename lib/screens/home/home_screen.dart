@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage(AppAssets.background))
+        image: DecorationImage(image: AssetImage(AppAssets.background),fit: BoxFit.fill)
       ),
       child: Scaffold(
         backgroundColor: AppColors.transparent,
