@@ -23,29 +23,25 @@ class QuranTab extends StatelessWidget {
         ),
       ],
     );
-
   }
-
-  Expanded buildScreenContent() {
-    return Expanded(
-        child: Column(
-          children: [
-            Container(width: double.infinity,height: 3,color: AppColors.orange,),
-             const Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("verses:",style: AppTheme.mediumTitleTextStyle,textAlign: TextAlign.center,),
-                  Text("Sura name:",style: AppTheme.mediumTitleTextStyle,textAlign: TextAlign.center,),
-                ],
-              ),
-            ),
-            Container(width: double.infinity,height: 3,color: AppColors.orange,),
-            Expanded(flex:7,child: buildSurasListView()),
-          ],
+  Column buildScreenContent() {
+    return Column(
+      children: [
+        Container(width: double.infinity,height: 3,color: AppColors.orange,),
+         const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("verses:",style: AppTheme.mediumTitleTextStyle,textAlign: TextAlign.center,),
+              Text("Sura name:",style: AppTheme.mediumTitleTextStyle,textAlign: TextAlign.center,),
+            ],
+          ),
         ),
-      );
+        Container(width: double.infinity,height: 3,color: AppColors.orange,),
+        Expanded(child: buildSurasListView()),
+      ],
+    );
   }
 
   ListView buildSurasListView() {

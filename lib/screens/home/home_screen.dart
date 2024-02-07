@@ -37,6 +37,7 @@ class _HomeState extends State<Home> {
   AppBar buildAppBar() => AppBar(
         backgroundColor: AppColors.transparent,
         elevation: 0,
+        shadowColor: AppColors.transparent,
         centerTitle: true,
         title: const Text("Islami",style: AppTheme.appBarTextStyle,),
       );
