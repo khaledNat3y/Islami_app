@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../utils/app_assets.dart';
-import 'home_screen.dart';
+import '../../utils/app_assets.dart';
+import '../home/home_screen.dart';
 
 class Splash extends StatefulWidget {
   static const routeName="splash";
