@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/screens/home_screen.dart';
-import 'package:new_app/screens/splash_screen.dart';
+import 'package:new_app/screens/home/home_screen.dart';
+import 'package:new_app/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(
@@ -9,7 +9,7 @@ void main() {
         Home.routeName:(_)=>Home(),
         Splash.routeName:(_)=>Splash(),
       },
-      initialRoute: Splash.routeName,
+      initialRoute: Home.routeName,
     )
   );
   ///Made with ♥ by Khaled Nat3y.
