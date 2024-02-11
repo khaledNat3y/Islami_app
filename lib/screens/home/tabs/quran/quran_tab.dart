@@ -1,12 +1,14 @@
 
 import 'package:flutter/material.dart';
+import 'package:new_app/model/screen_details_args.dart';
+import 'package:new_app/screens/sura_details/sura_details.dart';
 import 'package:new_app/utils/app_colors.dart';
 import 'package:new_app/utils/app_theme.dart';
 import 'package:new_app/utils/constants.dart';
 
 import '../../../../utils/app_assets.dart';
 class QuranTab extends StatelessWidget {
-  const QuranTab({super.key});
+   const QuranTab({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -48,16 +50,23 @@ class QuranTab extends StatelessWidget {
     return ListView.builder(
             itemCount: Constants.suraNames.length,
             itemBuilder: (context, index) {
-              return Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Expanded(child: Text("${Constants.versesNumber[index]}",
-                    textAlign: TextAlign.center,
-                    style: AppTheme.regularTitleTextStyle,)),
-                  Expanded(child: Text(Constants.suraNames[index],
-                    textAlign: TextAlign.center,
-                    style: AppTheme.regularTitleTextStyle,)),
-                ],
+              return InkWell(
+                onTap: (){
+                  ScreenDetailsArgs args = ScreenDetailsArgs(fileName: "${index + 1}.txt",
+                      name: Constants.suraNames[index]);
+                  Navigator.pushNamed(context, SuraDetails.routeName,arguments: args);
+                },
+                child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(child: Text("${Constants.versesNumber[index]}",
+                      textAlign: TextAlign.center,
+                      style: AppTheme.regularTitleTextStyle,)),
+                    Expanded(child: Text(Constants.suraNames[index],
+                      textAlign: TextAlign.center,
+                      style: AppTheme.regularTitleTextStyle,)),
+                  ],
+                ),
               );
             },
           );

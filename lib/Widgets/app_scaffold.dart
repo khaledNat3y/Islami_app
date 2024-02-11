@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+import '../utils/app_assets.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_theme.dart';
+
+class AppScaffold extends StatelessWidget {
+  final String title;
+  final Widget? bottomNavigation;
+  final Widget body;
+  const AppScaffold({super.key,
+    required this.title,
+    required this.body,
+     this.bottomNavigation});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage(AppAssets.background),fit: BoxFit.fill)
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.transparent,
+        appBar: AppBar(
+          backgroundColor: AppColors.transparent,
+          elevation: 0,
+          shadowColor: AppColors.transparent,
+          centerTitle: true,
+          title: Text(title,style: AppTheme.appBarTextStyle,),
+        ),
+        bottomNavigationBar: bottomNavigation,
+        body: body,
+      ),
+    );
+  }
+}
