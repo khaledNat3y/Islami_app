@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
@@ -14,9 +16,11 @@ class AppScaffold extends StatelessWidget {
      this.bottomNavigation});
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of(context);
     return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage(AppAssets.background),fit: BoxFit.fill)
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage((provider.isDarkMode()?AppAssets.backgroundDark
+              :AppAssets.background),),fit: BoxFit.fill)
       ),
       child: Scaffold(
         backgroundColor: AppColors.transparent,

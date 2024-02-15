@@ -4,8 +4,7 @@ import '../../../../model/screen_details_args.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_theme.dart';
-import '../../../../utils/constants.dart';
-import '../../../sura_details/sura_details.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class AhadethTab extends StatelessWidget {
   const AhadethTab({super.key});
 
@@ -16,25 +15,26 @@ class AhadethTab extends StatelessWidget {
         Expanded(flex:3,child: Center(child: Image.asset(AppAssets.ahadethTabLogo))),
         Expanded(
           flex: 7,
-          child: buildScreenContent(),
+          child: buildScreenContent(context),
         ),
       ],
     );
   }
-  Column buildScreenContent() {
+  Column buildScreenContent(BuildContext context) {
     return Column(
       children: [
-        Container(width: double.infinity,height: 3,color: AppColors.orange,),
-        const Padding(
+        Container(width: double.infinity,height: 3,color: Theme.of(context).dividerColor,),
+        Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text("Hadeth Name:",style: AppTheme.mediumTitleTextStyle,textAlign: TextAlign.center,),
+              Text(AppLocalizations.of(context)!.hadeth_name,
+                style: Theme.of(context).textTheme.bodySmall,textAlign: TextAlign.center,),
             ],
           ),
         ),
-        Container(width: double.infinity,height: 3,color: AppColors.orange,),
+        Container(width: double.infinity,height: 3,color:Theme.of(context).dividerColor,),
         Expanded(child: buildSurasListView()),
       ],
     );
@@ -53,9 +53,9 @@ class AhadethTab extends StatelessWidget {
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Expanded(child: Text("الحديث رقم ${index + 1} ",
+              Expanded(child: Text(args.name,
                 textAlign: TextAlign.center,
-                style: AppTheme.regularTitleTextStyle,)),
+                style: Theme.of(context).textTheme.bodySmall,)),
             ],
           ),
         );
