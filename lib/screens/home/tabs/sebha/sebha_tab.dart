@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/providers/settings_provider.dart';
 import 'package:new_app/utils/app_colors.dart';
 import 'package:new_app/utils/app_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../utils/app_assets.dart';
 class SebhaTab extends StatefulWidget {
@@ -18,6 +20,7 @@ class _SebhaTabState extends State<SebhaTab> {
   List<String> azkar= ["سُبْحـانَ اللهِ وَبِحَمْـدِهِ", "أسْتَغْفِرُ اللهَ وَأتُوبُ إلَيْهِ", "الله اكبر"];
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of(context);
     return Center(
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
@@ -29,13 +32,13 @@ class _SebhaTabState extends State<SebhaTab> {
                 Positioned(
                   left: 170,
                   top: 4,
-                    child: Image.asset(AppAssets.sebhaHead)),
+                    child: Image.asset(provider.isDarkMode()?AppAssets.sebhaHeadDark:AppAssets.sebhaHead)),
                 Container(
                     alignment: Alignment.center,
                     child: AnimatedRotation(
                       turns: turns,
                       duration: Duration(seconds: 1),
-                      child: Image.asset(AppAssets.sebhaBody)),
+                      child: Image.asset(provider.isDarkMode()?AppAssets.sebhaBodyDark:AppAssets.sebhaBody)),
                     ),
             
               ],
@@ -47,13 +50,14 @@ class _SebhaTabState extends State<SebhaTab> {
               children: [
                 Container(
                   margin: EdgeInsets.all(20),
-                  child: Text("عدد التسبيحات",style: AppTheme.mediumTitleTextStyle,),
+                  child: Text("عدد التسبيحات",
+                    style: Theme.of(context).textTheme.bodySmall),
                 ),
                 Container(
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape:ContinuousRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
-                        backgroundColor: AppColors.orange,
+                        backgroundColor: (provider.isDarkMode()?AppColors.primiaryDark : AppColors.orange),
                         padding: EdgeInsets.all(25),
                       ),
                   
@@ -68,7 +72,7 @@ class _SebhaTabState extends State<SebhaTab> {
                         turns += 1/33;
                         setState(() {});
                       },
-                      child: Text("$counter",style: AppTheme.regularTitleTextStyle,)),
+                      child: Text("$counter",style: Theme.of(context).textTheme.bodySmall,)),
                 ),
                 Container(
                   padding: EdgeInsets.all(5),
@@ -76,11 +80,11 @@ class _SebhaTabState extends State<SebhaTab> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     shape: BoxShape.rectangle,
-                    color: AppColors.orange
+                    color: (provider.isDarkMode()?AppColors.accentDark : AppColors.orange),
                   ),
-                  child: Text(azkar[index],style: TextStyle(color: AppColors.white,
+                  child: Text(azkar[index],style: TextStyle(color:  (provider.isDarkMode()?AppColors.lightBlack : AppColors.white),
                   fontWeight: FontWeight.w400,
-                  fontSize: 25
+                  fontSize: 25,
                   ),),
                 ),
               ],
